@@ -11,7 +11,7 @@ CORS(app)
 app.config['MYSQL_USER'] = 'root'
 app.config['MYSQL_PASSWORD'] = 'secret'
 app.config['MYSQL_DB'] = 'todos'
-app.config['MYSQL_HOST'] = 'mysql'
+app.config['MYSQL_HOST'] = '20.117.140.73'
 mysql.init_app(app)
 
 @app.route("/add") #Add Student
