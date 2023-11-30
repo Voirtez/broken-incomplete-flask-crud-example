@@ -16,7 +16,7 @@ mysql.init_app(app)
 
 @app.route("/connection-test")
 def connectionTest():
-  return "Hello from Connection Test
+  return "Hello from Connection Test"
 
 @app.route("/add") #Add Student
 def add():
