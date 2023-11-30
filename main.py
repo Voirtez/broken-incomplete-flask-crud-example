@@ -14,6 +14,10 @@ app.config['MYSQL_DB'] = 'todos'
 app.config['MYSQL_HOST'] = '20.117.140.73'
 mysql.init_app(app)
 
+@app.route("/connection-test")
+def connectionTest():
+  return "Hello from Connection Test
+
 @app.route("/add") #Add Student
 def add():
   name = request.args.get('name')
