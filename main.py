@@ -4,7 +4,7 @@ from flask_mysqldb import MySQL
 from flask_cors import CORS
 import json
 mySqlWorking=False
-try:
+'''try:
   mysql = MySQL()
   mySqlWorking=True
 except:
@@ -21,11 +21,11 @@ try:
   mysql.init_app(app)
 except:
   mySqlWorking=False
-  
+  '''
 @app.route("/connection-test")
 def connectionTest():
   return "Hello from Connection Test: " + str(mySqlWorking)
-
+"""
 @app.route("/add") #Add Student
 def add():
   name = request.args.get('name')
@@ -55,6 +55,6 @@ def read(): # Name of the method
     status=200,
     mimetype='application/json'
   )
-  return ret #Return the data in a string format
+  return ret #Return the data in a string format'''   """
 if __name__ == "__main__":
   app.run(host='0.0.0.0',port='8080') #Run the flask app at port 8080
