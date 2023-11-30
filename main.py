@@ -3,20 +3,28 @@ from flask import request
 from flask_mysqldb import MySQL
 from flask_cors import CORS
 import json
-mysql = MySQL()
+mySqlWorking=False
+try:
+  mysql = MySQL()
+  mySqlWorking=True
+except:
+  pass
 app = Flask(__name__)
 CORS(app)
 # My SQL Instance configurations
 # Change these details to match your instance configurations
-app.config['MYSQL_USER'] = 'root'
-app.config['MYSQL_PASSWORD'] = 'secret'
-app.config['MYSQL_DB'] = 'todos'
-app.config['MYSQL_HOST'] = '20.117.140.73'
-mysql.init_app(app)
-
+try:
+  app.config['MYSQL_USER'] = 'root'
+  app.config['MYSQL_PASSWORD'] = 'secret'
+  app.config['MYSQL_DB'] = 'todos'
+  app.config['MYSQL_HOST'] = '20.117.140.73'
+  mysql.init_app(app)
+except:
+  mySqlWorking=False
+  
 @app.route("/connection-test")
 def connectionTest():
-  return "Hello from Connection Test"
+  return "Hello from Connection Test: " + str(mySqlWorking)
 
 @app.route("/add") #Add Student
 def add():
